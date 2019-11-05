@@ -9,7 +9,13 @@ constructor() {
     adiciona(event) {
         event.preventDefault();
         
-        let negociacao = new Negociacao(this.data, this.quantidade, this.valor);
-        
+    
+        let data = new Date(
+            ...this.data.value.split('-')
+            .map((item, indice) => item - (indice % 2)));
+        let negociacao = new Negociacao(data, this.quantidade, this.valor);
+        console.log(negociacao.data);
+
+
     }
 }
