@@ -8,13 +8,13 @@ constructor() {
 
     adiciona(event) {
         event.preventDefault();
-        
-    
-        let data = new Date(
-            ...this.data.value.split('-')
-            .map((item, indice) => item - (indice % 2)));
-        let negociacao = new Negociacao(data, this.quantidade, this.valor);
-        console.log(negociacao.data);
+        let helper = new DataHelper();
+
+        let negociacao = new Negociacao(
+            helper.ConvertTextToDate(this.data.value), 
+            this.quantidade, 
+            this.valor);
+        console.log(helper.ConvertDateToText(negociacao.data));
 
 
     }
